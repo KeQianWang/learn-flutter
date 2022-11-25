@@ -1,0 +1,24 @@
+import 'package:flutter/material.dart';
+
+class HYUnknownPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return WillPopScope(
+      onWillPop: () {
+        _backToHome(context);
+        return Future.value(false);
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("错误页面"),
+        ),
+        body: Center(
+          child: Text("错误页面", style: TextStyle(fontSize: 20, color: Colors.red),),
+        ),
+      ),
+    );
+  }
+  void _backToHome(BuildContext context) {
+    Navigator.of(context).pop('错误页面');
+  }
+}
